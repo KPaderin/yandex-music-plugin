@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/yandex"
+  from = "/yandex/"
   to = "https://api.music.yandex.net"
   status = 200
   force = true
