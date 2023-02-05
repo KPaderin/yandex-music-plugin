@@ -6,7 +6,11 @@ import LoadingBar from "../../components/LoadingBar/LoadingBar";
 import useIdV3ReaderSearchApiWithProgressBar from "../../hooks/useIdV3ReaderSearchApiWithProgressBar";
 
 const Result = ({filesSelected}) => {
-    const api = useMemo(() => new YandexMusicApi(), []);
+    const api = useMemo(() => {
+        let api_ = new YandexMusicApi()
+        api_.authorization(localStorage.getItem('token'))
+        return api_
+    }, []);
 
     const [progressBarIsActive, progressBarCurrent, progressBarMax, tracksList] =
         useIdV3ReaderSearchApiWithProgressBar(useMemo(() => api.search.bind(api), [api]), filesSelected)

@@ -42,7 +42,7 @@ export class YandexMusicApi {
 
     search(req, type = 'track', nocorrect = false) {
         const url = `yandex/search?text=${req}&page=0&type=${type}&nocorrect=${nocorrect}&perPage=1`
-        return this.request(url)
+        return this.request(url, this.headers)
             .then(json => json.result)
             .then(res => {
                 if(res.tracks && res.tracks.results)

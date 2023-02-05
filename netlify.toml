@@ -1,9 +1,9 @@
 [[redirects]]
-  from = "/yandex/search"
-  to = "https://api.music.yandex.net/search"
+  from = "/yandex*"
+  to = "https://api.music.yandex.net/"
   status = 200
   force = true
-  headers = {Host = "api.music.yandex.net"}
+  headers = {X-From = "Netlify"}
 [[headers]]
   for = "/*"
   [headers.values]
