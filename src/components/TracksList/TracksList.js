@@ -3,9 +3,10 @@ import styles from './TracksList.module.css';
 import Track from "../Track/Track";
 
 const TracksList = ({tracksList}) => {
+
     const clickHandler = (e) => {
         e.preventDefault();
-        window.location.assign('https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d&https://tangerine-zuccutto-452844.netlify.app')
+        window.location.assign('https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d&redirect_uri=https://tangerine-zuccutto-452844.netlify.app')
         /*api.getToken('', '')
             .then(account => {
                 api.authorization(account.access_token).then(res => {
