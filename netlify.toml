@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/yandex/search"
-  to = "https://api.music.yandex.net/search"
+  to = "https://api.music.yandex.net/search:splat"
   status = 200
   force = true
   headers = {Access-Control-Allow-Origin = "*"}
