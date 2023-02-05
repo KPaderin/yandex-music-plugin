@@ -1,14 +1,11 @@
 import React from 'react';
 import styles from './TracksList.module.css';
 import Track from "../Track/Track";
-import {useNavigate} from "react-router-dom";
 
 const TracksList = ({tracksList}) => {
-    const navigate = useNavigate();
-
     const clickHandler = (e) => {
         e.preventDefault();
-        navigate('https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d&https://amazing-bunny-86287a.netlify.app')
+        window.location.assign('https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d&https://tangerine-zuccutto-452844.netlify.app')
         /*api.getToken('', '')
             .then(account => {
                 api.authorization(account.access_token).then(res => {
