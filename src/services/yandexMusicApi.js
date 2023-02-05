@@ -26,7 +26,7 @@ export class YandexMusicApi {
     }
 
     authorization(token) {
-        const url = `yandex/account/status`
+        const url = `/yandex/account/status`
         this.headers = {...this.headers, 'Authorization': `OAuth ${token}`}
         return this.request(url, this.headers)
             .then(json => {
@@ -41,7 +41,7 @@ export class YandexMusicApi {
     }
 
     search(req, type = 'track', nocorrect = false) {
-        const url = `yandex/search?text=${req}&page=0&type=${type}&nocorrect=${nocorrect}&perPage=1`
+        const url = `/yandex/search?text=${req}&page=0&type=${type}&nocorrect=${nocorrect}&perPage=1`
         return this.request(url)
             .then(json => json.result)
             .then(res => {
@@ -53,7 +53,7 @@ export class YandexMusicApi {
     }
 
     createPlaylists(playlistName, visibility = 'private') {
-        const url = `yandex/users/${this.userId}/playlists/create`
+        const url = `/yandex/users/${this.userId}/playlists/create`
 
         let formData = new FormData();
         formData.append('title', playlistName);
@@ -66,7 +66,7 @@ export class YandexMusicApi {
     }
 
     addTrackById(tracks= [{"id":'72790205',"albumId":'12562338'}], kind = '1004', revision = 8) {
-        const url = `yandex/users/${this.userId}/playlists/${kind}/change-relative`
+        const url = `/yandex/users/${this.userId}/playlists/${kind}/change-relative`
 
         let formData = new FormData();
         formData.append('diff',
