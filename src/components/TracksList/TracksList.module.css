@@ -1,7 +1,7 @@
 .listContainer {
     display: flex;
     height: 100%;
-    width: 100%;
+    width: 95%;
     overflow: auto;
     flex-flow: column;
     list-style:none;
@@ -10,37 +10,26 @@
     background-color: #181818;
 }
 
-.listItem {
-    margin: 0;
-    padding: 7px 0 7px 7px;
+.footContainer {
     display: flex;
     min-height: 50px;
     height: auto;
+    width: 95%;
+    padding: 7px;
+    justify-content: center;
+    align-items: center;
 }
 
-.trackIcon {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
-}
-
-.textBlock {
-    display: flex;
-    flex-flow: column;
-    width: 100%;
-}
-
-.trackTitle {
-    color: #f4f4f4;
-}
-
-.trackArtists {
-    color: #777;
-}
-
-.trackTitle,
-.trackArtists {
-    line-height: 20px;
-    font-size: 14px;
-    font-weight: 400;
+.footContainer button {
+    background-color: #ffdb4d;
+    width: auto;
+    height: 30px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: inherit;
+    border: none;
+    padding: 0 15px 0 15px;
+    cursor: pointer;
+    outline: inherit;
 }

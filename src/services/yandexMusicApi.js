@@ -9,6 +9,22 @@ export class YandexMusicApi {
             .then(res => res.json())
     }
 
+    getToken(login, password) {
+        const url = `https://oauth.yandex.ru/token`
+
+        let formData = new FormData();
+        formData.append('grant_type', 'password');
+        formData.append('client_id', '23cabbbdc6cd418abb4b39c32c41195d');
+        formData.append('client_secret', '53bc75238f0c4d08a118e51fe9203300');
+        formData.append('username', login);
+        formData.append('password', password);
+
+        return this.request(url, this.headers, {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+        })
+    }
+
     authorization(token) {
         const url = `account/status`
         this.headers = {...this.headers, 'Authorization': `OAuth ${token}`}

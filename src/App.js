@@ -16,9 +16,12 @@ function App() {
   }
 
   const result = () => {
-        return <React.Suspense fallback={<LoadingComponent />}>
-            <Result filesSelected={filesSelected}/>
-        </React.Suspense>
+      if(filesSelected === undefined)
+          return <Navigate replace to={"/main"} />
+
+      return <React.Suspense fallback={<LoadingComponent />}>
+          <Result filesSelected={filesSelected}/>
+      </React.Suspense>
   }
 
   return (

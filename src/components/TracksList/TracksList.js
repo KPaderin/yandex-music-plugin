@@ -1,31 +1,51 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './TracksList.module.css';
+import Track from "../Track/Track";
+import {YandexMusicApi} from "../../services/yandexMusicApi";
+import {useNavigate} from "react-router-dom";
 
 const TracksList = ({tracksList}) => {
+    const api = new YandexMusicApi();
+    const token = ''
+    const navigate = useNavigate();
+
+    const clickHandler = (e) => {
+        e.preventDefault();
+        navigate('https://oauth.yandex.ru/authorize?response_type=token&client_id=23cabbbdc6cd418abb4b39c32c41195d&https://amazing-bunny-86287a.netlify.app')
+        /*api.getToken('', '')
+            .then(account => {
+                api.authorization(account.access_token).then(res => {
+                    api.createPlaylists(res.result.account.uid).then(playlist => {
+                        let kind = playlist.result.kind
+                        let revision = playlist.result.revision
+                        let tracks = tracksList.filter(track => track.selected).map(track => ({
+                            "id": track.result.id,
+                            "albumId": track.result.albums[0].id
+                        }))
+                        api.addTrackById(tracks, kind, revision)
+                            .then(res => {
+                                if (res.hasOwnProperty('result'))
+                                    alert('okay')
+                                navigate('/main')
+                            })
+                    })
+                })
+            })*/
+    }
+
     return (
-        <ul className={styles.listContainer}>
-            { tracksList.map(track => {
-                    let imageURL = track.ogImage;
-                    let imageURLLarge = imageURL;
-                    if(imageURL[imageURL.length - 1] === '%')
-                    {
-                        imageURL = '//' + imageURL.replace('%%', '50x50');
-                        imageURLLarge = '//' + imageURL.replace('%%', '100x100');
-                    }
-                    return <li className={styles.listItem} key={track.id}>
-                        <img
-                            className={styles.trackIcon}
-                            //src={imageURL}
-                            srcSet={`${imageURL}, ${imageURLLarge} 2x`}
-                        />
-                        <div className={styles.textBlock}>
-                            <div className={styles.trackTitle}>{track.title}</div>
-                            <div className={styles.trackArtists}>{track.artists[0].name}</div>
-                        </div>
-                    </li>
-                }
-            )}
-        </ul>
+        <>
+            <ul className={styles.listContainer}>
+                {tracksList.map(track => {
+                    if (track.result.length === 0)
+                        return null
+                    return <Track key={track.result.id} track={track}/>
+                })}
+            </ul>
+            <div className={styles.footContainer}>
+                <button onClick={clickHandler}>Создать плейлист и добавить выбранные</button>
+            </div>
+        </>
     );
 };
 
