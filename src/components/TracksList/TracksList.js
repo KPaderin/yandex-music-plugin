@@ -1,12 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import styles from './TracksList.module.css';
 import Track from "../Track/Track";
-import {YandexMusicApi} from "../../services/yandexMusicApi";
 import {useNavigate} from "react-router-dom";
 
 const TracksList = ({tracksList}) => {
-    const api = new YandexMusicApi();
-    const token = ''
     const navigate = useNavigate();
 
     const clickHandler = (e) => {
