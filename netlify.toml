@@ -1,6 +1,6 @@
 [[redirects]]
-  from = "/yandex*"
-  to = "https://api.music.yandex.net/"
+  from = "/yandex"
+  to = "https://api.music.yandex.net"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
@@ -8,3 +8,4 @@
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
+
