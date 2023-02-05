@@ -3,8 +3,4 @@
   to = "https://api.music.yandex.net/search"
   status = 200
   force = true
-  headers = {X-From = "Netlify"}
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
+  headers = {Access-Control-Allow-Origin = "*"}
