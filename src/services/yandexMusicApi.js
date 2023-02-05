@@ -4,7 +4,7 @@ export class YandexMusicApi {
     }
 
     request(url, headers, args = {}) {
-        console.log({...args, headers:headers})
+        //console.log({...args, headers:headers})
         return fetch(url, {...args, headers:headers})
             .then(res => res.json())
     }
@@ -27,7 +27,13 @@ export class YandexMusicApi {
     search(req, type = 'track', nocorrect = false) {
         const url = `search?text=${req}&page=0&type=${type}&nocorrect=${nocorrect}&perPage=1`
         return this.request(url)
-            .then(json => json.result.tracks.results)
+            .then(json => json.result)
+            .then(res => {
+                if(res.tracks && res.tracks.results)
+                    return res.tracks.results
+                else
+                    return []
+            })
     }
 
     createPlaylists(playlistName, visibility = 'private') {

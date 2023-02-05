@@ -2,7 +2,8 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font: 13px YSTextRegular,Arial,Helvetica,sans-serif
+  font: 13px YSTextRegular,Arial,Helvetica,sans-serif;
+  background-color: #171717;
 }
 
 code {

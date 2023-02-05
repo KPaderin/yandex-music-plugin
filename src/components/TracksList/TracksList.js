@@ -29,4 +29,4 @@ const TracksList = ({tracksList}) => {
     );
 };
 
-export default TracksList;
+export default React.memo(TracksList);
