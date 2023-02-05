@@ -3,9 +3,8 @@
   to = "https://api.music.yandex.net/search"
   status = 200
   force = true
-  headers = {X-From = "Netlify"}
+  headers = {Host = "api.music.yandex.net"}
 [[headers]]
   for = "/*"
   [headers.values]
     Access-Control-Allow-Origin = "*"
-    Host = "api.music.yandex.net"
