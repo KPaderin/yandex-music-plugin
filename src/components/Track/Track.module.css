@@ -1,0 +1,36 @@
+.listItem {
+    margin: 0;
+    padding: 7px 0 7px 7px;
+    display: flex;
+    min-height: min-content;
+    height: auto;
+}
+
+.trackIcon {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.textBlock {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: auto;
+}
+
+.trackTitle {
+    color: #f4f4f4;
+}
+
+.trackArtists {
+     color: #777;
+ }
+
+.trackTitle,
+.trackArtists {
+    line-height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    height: auto;
+}

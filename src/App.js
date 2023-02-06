@@ -1,24 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {useState} from "react";
+import React from 'react';
+import LoadingComponent from "./components/LoadingComponent/LoadingComponent";
+
+const Main = React.lazy(() => import("./pages/Main/Main"));
+const Result = React.lazy(() => import("./pages/Result/Result"));
+const Login = React.lazy(() => import("./pages/Login/Login"));
 
 function App() {
+  const [filesSelected, setFilesSelected] = useState();
+
+    const login = () => {
+        if (localStorage.getItem('token') !== null)
+            return <Navigate replace to={"/main"} />
+
+        return <React.Suspense fallback={<LoadingComponent />}>
+            <Login />
+        </React.Suspense>
+    }
+
+  const main = () => {
+      if (localStorage.getItem('token') === null)
+          return <Navigate replace to={"/login"} />
+      return <React.Suspense fallback={<LoadingComponent />}>
+          <Main setFilesSelected={setFilesSelected} />
+      </React.Suspense>
+  }
+
+  const result = () => {
+      if(filesSelected === undefined)
+          return <Navigate replace to={"/main"} />
+
+      return <React.Suspense fallback={<LoadingComponent />}>
+          <Result filesSelected={filesSelected}/>
+      </React.Suspense>
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <BrowserRouter>
+          <Routes>
+              <Route exact path={"/login"} element={login()} />
+              <Route exact path={"/main"} element={main()} />
+              <Route exact path={"/result"} element={result()} />
+              <Route exact path={"/"} element={<Navigate replace to={"/main"} />} />
+          </Routes>
+      </BrowserRouter>
   );
 }
 

@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+    color: rgba(186, 186, 186, 1);
+}

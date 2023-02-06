@@ -1,0 +1,21 @@
+[[redirects]]
+  from = "https://tangerine-zuccutto-452844.netlify.app/yandex/*"
+  to = "https://api.music.yandex.net/:splat"
+  status = 200
+  force = true
+  headers = {Access-Control-Allow-Origin = "*"}
+
+[[redirects]]
+  from = "/main"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/result"
+  to = "/"
+  status = 200
+
+[[redirects]]
+  from = "/login"
+  to = "/"
+  status = 200

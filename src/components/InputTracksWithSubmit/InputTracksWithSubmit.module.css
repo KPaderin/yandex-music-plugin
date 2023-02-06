@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    max-width: 80%;
+    width: 800px;
+    height: 50%;
+    background-color: transparent;
+    position: relative;
+}
+
+.video {
+    position: absolute;
+    max-height: 140%;
+    width: 140%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.containerControls {
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f4f4f4;
+}
+
+.containerInput {
+    position: relative;
+    display: inline-block;
+}
+
+.containerInput span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    min-width: 100px;
+    box-sizing: border-box;
+    border: none;
+
+    color: #f4f4f4;
+    background-color: transparent;
+    transition: .5s;
+}
+
+.containerInput span:hover {
+    color: #ffdb4d;
+}
+
+.containerInput input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.buttonNext {
+    margin-top: 56px;
+    background-color: #ffdb4d;
+    height: 30px;
+    width: 100px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 500;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: inherit;
+    visibility: hidden;
+}
+
+.buttonNext.active {
+    visibility: visible;
+}
