@@ -1,12 +1,10 @@
 import React, {useState} from 'react';
 import styles from './InputTracksWithSubmit.module.css';
 import myVideo from '../../video/fallback-black.mp4';
-import classNames from 'classnames';
 import {useNavigate} from 'react-router-dom'
 
 const InputTracksWithSubmit = ({setFilesSelected}) => {
     const [isActiveNextButton, setIsActiveNextButton] = useState(false);
-    const buttonActiveClass = classNames(styles.buttonNext, {[styles.active]: isActiveNextButton});
 
     const navigate = useNavigate();
 
@@ -29,7 +27,12 @@ const InputTracksWithSubmit = ({setFilesSelected}) => {
                     <input onChange={filesChangedHandler} type={"file"} multiple/>
                     <span>Тык</span>
                 </label>
-                    <button onClick={submitClickHandler} className={buttonActiveClass}>Добавить</button>
+                {isActiveNextButton && <button 
+                    onClick={submitClickHandler} 
+                    className={styles.buttonNext} 
+                >
+                    Добавить
+                </button>}
             </div>
             <video className={styles.video} autoPlay loop muted>
                 <source src={myVideo} type="video/mp4" />

@@ -1,4 +1,4 @@
-var jsmediatags = require("jsmediatags/dist/jsmediatags.min");
+import * as jsmediatags from "jsmediatags/dist/jsmediatags.min";
 
 const getIdv3Tags = (filesSelected, callbackOnProgress) => {
     let promiseArray = [];

@@ -1,6 +1,5 @@
+import React, {useState} from "react";
 import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
-import {useState} from "react";
-import React from 'react';
 import LoadingComponent from "./components/LoadingComponent/LoadingComponent";
 
 const Main = React.lazy(() => import("./pages/Main/Main"));

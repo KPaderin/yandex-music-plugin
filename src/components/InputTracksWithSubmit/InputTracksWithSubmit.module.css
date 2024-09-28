@@ -80,9 +80,4 @@
     padding: 0;
     cursor: pointer;
     outline: inherit;
-    visibility: hidden;
-}
-
-.buttonNext.active {
-    visibility: visible;
-}
+ }
